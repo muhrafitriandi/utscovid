@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/bar.css"> -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Beranda</title>
+</head>
+
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h4>Edu-Covid</h4>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="#">Beranda</a>
+                </li>
+                <li>
+                    <a href="pencegahan.html">Pencegahan</a>
+                </li>
+                <li>
+                    <a href="#">Statistik</a>
+                </li>
+                <li>
+                    <a href="kuis.html">Kuis</a>
+                </li>
+                <li>
+                    <a href="#">Kontak </a>
+                </li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+<style type="text/css">
+ @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap");
+
+body {
+  display: flex;
+  height: 100vh;
+  background-color: rgba(26, 25, 37, 0.829);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.list-group,
+.list-group-flush {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.card-header {
+  text-align: center;
+  background-color: white;
+  border: 0;
+  font-family: "Inconsolata", monospace;
+  text-transform: uppercase;
+}
+
+.bg-light,
+.mb-3 {
+  box-shadow: 10px 10px 10px -2px rgba(0, 0, 0, 0.75);
+}
+
+.card-body {
+  background: white;
+}
+
+span.icons {
+  display: flex;
+  align-items: space-evenly;
+  justify-content: center;
+  padding: 10px;
+}
+
+.fa-user-friends {
+  color: rgba(58, 58, 248, 0.87);
+}
+
+.fa-check-circle {
+  color: rgb(3, 172, 3);
+}
+
+.fa-bed {
+  color: rgb(248, 184, 64);
+}
+
+.fa-heart-broken {
+  color: rgba(245, 84, 84, 0.822);
+}
+
+h5 {
+  font-weight: 700;
+}
+
+#confirm,
+#recover,
+#critical,
+#deaths {
+  font-family: "Inconsolata", monospace;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+#info {
+  padding-top: 10px;
+  font-size: 12px;
+}
+  
+</style>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+<div class="container">
+  <div class="card bg-light mb-3">
+    <div class="card-header">Global Covid-19 Statistics</div>
+    <div class="card-body">
+      <div class="card">
+        <div class="card-header" id="update">Last Updated: <span id="updateData"></span></div>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" id="confirm"><span class="icons"><i class="fas fa-user-friends fa-3x"></i></span>
+            <h5>Confirmed Cases</h5> <span id="confirmData"></span>
+          </li>
+          <li class="list-group-item" id="recover"><span class="icons"><i class="fas fa-check-circle fa-3x"></i></span>
+            <h5>Recovered</h5><span id="recoverData"></span>
+          </li>
+          <li class="list-group-item" id="critical"><span class="icons"><i class="fas fa-bed fa-3x"></i></span>
+            <h5>Critical Cases</h5> <span id="criticalData"></span>
+          </li>
+          <li class="list-group-item" id="deaths"><span class="icons"><i class="fas fa-heart-broken fa-3x"></i></span>
+            <h5>Total Deaths</h5> <span id="deathsData"></span>
+          </li>
+        </ul>
+
+      </div>
+      <p id="info">Information provided by RapidApi's <a href="https://rapidapi.com/Gramzivi/api/covid-19-data">Covid-19 Data</a>
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+<script type="text/javascript">
+   axios
+  .get("https://covid19-api.com/country/code?code=ID&format=json")
+  .then(({ data }) => {
+    for (let total of data) {
+      
+      //Elements
+      const confirmData = document.querySelector("#confirmData");
+      const recoverData = document.querySelector("#recoverData");
+      const criticalData = document.querySelector("#criticalData");
+      const deathsData = document.querySelector("#deathsData");
+      const updateData = document.querySelector("#updateData");
+      const lastUpdate = new Date(total.lastUpdate).toLocaleString();
+
+      //Data
+      const totalConfirm = total.confirmed.toLocaleString();
+      const totalRecover = total.recovered.toLocaleString();
+      const totalCritical = total.critical.toLocaleString();
+      const totalDeaths = total.deaths.toLocaleString();
+
+      //Insert Data
+      confirmData.innerHTML = `${totalConfirm}`;
+      recoverData.innerHTML = `${totalRecover}`;
+      criticalData.innerHTML = `${totalCritical}`;
+      deathsData.innerHTML = `${totalDeaths}`;
+      updateData.innerHTML = `${lastUpdate}`;
+    }
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+</script>    
+
+
+
+
+</body>
+
+</html>
